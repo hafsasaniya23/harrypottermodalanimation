@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Harry Potter Character Gallery</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0d0d0d;
+      color: white;
+      text-align: center;
+      padding: 50px;
+    }
+
+    h1 {
+      margin-bottom: 30px;
+      color: #f5c518;
+    }
+
+    .gallery {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      width: 180px;
+      background-color: #222;
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .card p {
+      padding: 10px;
+      font-size: 16px;
+    }
+
+    /* Modal */
+    input[type="checkbox"] {
+      display: none;
+    }
+
+    .modal {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+    }
+
+    .modal-box {
+      background: #1e1e1e;
+      padding: 20px;
+      border-radius: 10px;
+      width: 350px;
+      text-align: center;
+      transform: translateY(-100px);
+      transition: transform 0.4s ease;
+    }
+
+    .modal img {
+      width: 150px;
+      border-radius: 50%;
+      margin-bottom: 15px;
+    }
+
+    .close-btn {
+      margin-top: 15px;
+      padding: 8px 18px;
+      background: #f5c518;
+      color: black;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    /* When checkbox is checked */
+    #harry:checked ~ .modal.harry,
+    #hermione:checked ~ .modal.hermione,
+    #ron:checked ~ .modal.ron {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    #harry:checked ~ .modal.harry .modal-box,
+    #hermione:checked ~ .modal.hermione .modal-box,
+    #ron:checked ~ .modal.ron .modal-box {
+      transform: translateY(0);
+    }
+
+  </style>
+</head>
+<body>
+
+  <h1>🧙‍♂️ Harry Potter Character Gallery</h1>
+
+  <div class="gallery">
+    <label for="harry" class="card">
+      <img src="https://i.pinimg.com/736x/68/8b/d2/688bd2e2fba6756a496640c10465a28e.jpg" alt="Harry Potter">
+      <p>Harry Potter</p>
+    </label>
+
+    <label for="hermione" class="card">
+      <img src="https://i.pinimg.com/564x/bd/8e/5d/bd8e5d6f823652d52f40cedb39eb5be4.jpg" alt="Hermione Granger">
+      <p>Hermione Granger</p>
+    </label>
+
+    <label for="ron" class="card">
+      <img src="https://static.wixstatic.com/media/396c43_b9972092cc034da4bffd122c781803a0~mv2.jpg/v1/fit/w_500,h_500,q_90/file.jpg" alt="Ron Weasley">
+      <p>Ron Weasley</p>
+    </label>
+  </div>
+
+  <!-- Hidden checkboxes -->
+  <input type="checkbox" id="harry">
+  <input type="checkbox" id="hermione">
+  <input type="checkbox" id="ron">
+
+  <!-- Harry Modal -->
+  <div class="modal harry">
+    <div class="modal-box">
+      <img src="https://mystickermania.com/cdn/stickers/movies-and-series/harry-potter-hogwarts-hat-512x512.png" alt="Harry Potter">
+      <h2>Harry Potter</h2>
+      <p>🦁 House: Gryffindor</p>
+      <p>⚡ The Boy Who Lived</p>
+      <label for="harry" class="close-btn">Close</label>
+    </div>
+  </div>
+
+  <!-- Hermione Modal -->
+  <div class="modal hermione">
+    <div class="modal-box">
+      <img src="https://mystickermania.com/cdn/stickers/movies-and-series/harry-potter-hogwarts-hat-512x512.png" alt="Hermione Granger">
+      <h2>Hermione Granger</h2>
+      <p>🦁 House: Gryffindor</p>
+      <p>📚 Brightest witch of her age</p>
+      <label for="hermione" class="close-btn">Close</label>
+    </div>
+  </div>
+
+  <!-- Ron Modal -->
+  <div class="modal ron">
+    <div class="modal-box">
+      <img src="https://mystickermania.com/cdn/stickers/movies-and-series/harry-potter-hogwarts-hat-512x512.png" alt="Ron Weasley">
+      <h2>Ron Weasley</h2>
+      <p>🦁 House: Gryffindor</p>
+      <p>🍫 Loves Chocolate Frogs!</p>
+      <label for="ron" class="close-btn">Close</label>
+    </div>
+  </div>
+
+</body>
+</html>
